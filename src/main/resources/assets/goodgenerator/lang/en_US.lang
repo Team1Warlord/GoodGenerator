@@ -322,6 +322,10 @@ PreciseAssembler.hint.2=42x Reinforced Glasses
 PreciseAssembler.hint.3=21x Machine Casing (Not Machine Hull!)
 PreciseAssembler.hint.4=1 - Any Hatch/Precise Electronic Unit Casing
 PreciseAssembler.hint.5=Support TecTech Energy Hatches!
+LargeFusion.hint.0=1 - Input Hatch
+LargeFusion.hint.1=2 - Output Hatch
+LargeFusion.hint.2=3 - Energy Hatch
+LargeFusion.hint.4=Support TecTech Hatches.
 
 #Chat
 largeessentiagenerator.chat= Installed!

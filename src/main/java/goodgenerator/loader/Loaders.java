@@ -103,6 +103,7 @@ public class Loaders {
     public static ItemStack SCTurbine;
     public static ItemStack XHE;
     public static ItemStack PA;
+    public static ItemStack[] LFC = new ItemStack[5];
 
     public static ItemStack[] NeutronAccelerators = new ItemStack[9];
     public static ItemStack[] Generator_Diesel = new ItemStack[2];
@@ -123,6 +124,7 @@ public class Loaders {
         Loaders.SCTurbine = new SupercriticalFluidTurbine(IDOffset + 15, "SupercriticalSteamTurbine", "SC Steam Turbine").getStackForm(1L);
         Loaders.XHE = new ExtremeHeatExchanger(IDOffset + 16, "ExtremeHeatExchanger", "Extreme Heat Exchanger").getStackForm(1L);
         Loaders.PA = new PreciseAssembler(IDOffset + 17, "PreciseAssembler", "Precise Auto-Assembler MT-3662").getStackForm(1L);
+        Loaders.LFC[0] = new LargeFusionComputer1(IDOffset + 18, "LargeFusionComputer1", "Compact Fusion Computer MK-I Prototype").getStackForm(1);
         Loaders.Generator_Diesel[0] = new DieselGenerator(1113, "basicgenerator.diesel.tier.04", "Turbo Supercharging Combustion Generator", 4).getStackForm(1L);
         Loaders.Generator_Diesel[1] = new DieselGenerator(1114, "basicgenerator.diesel.tier.05", "Ultimate Chemical Energy Releaser", 5).getStackForm(1L);
         CrackRecipeAdder.registerPipe(30995, MyMaterial.incoloy903, 15000, 8000, true);
