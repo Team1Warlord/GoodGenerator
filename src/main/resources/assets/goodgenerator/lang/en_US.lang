@@ -33,6 +33,7 @@ pressureResistantWalls.0.name=Pressure Resistant Wall
 preciseUnitCasing.0.name=Precise Electronic Unit Casing MK-I
 preciseUnitCasing.1.name=Precise Electronic Unit Casing MK-II
 preciseUnitCasing.2.name=Precise Electronic Unit Casing MK-III
+compactFusionCoil.0.name=Ameliorated Superconduct Coil
 
 #Items
 item.radiationProtectionPlate.name=Radiation Proof Plate
@@ -240,6 +241,8 @@ gui.NeutronActivator.1=Input:
 gui.YOTTank.0=Capacity:
 gui.YOTTank.1=Fluid:
 gui.YOTTank.2=Stored:
+gui.LargeFusion.0=Stored Energy:
+gui.LargeFusion.1=Energy Capacity:
 
 #NEI Info
 tile.recipe.naquadah_reactor=Large Naquadah Reactor

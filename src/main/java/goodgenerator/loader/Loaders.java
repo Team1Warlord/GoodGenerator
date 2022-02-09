@@ -89,6 +89,7 @@ public class Loaders {
     public static final Block supercriticalFluidTurbineCasing = new TurbineCasing("supercriticalFluidTurbineCasing", "supercriticalFluidTurbineCasing");
     public static final Block pressureResistantWalls = new Casing("pressureResistantWalls", new String[]{GoodGenerator.MOD_ID+":pressureResistantWalls"});
     public static final Block preciseUnitCasing = new Casing("preciseUnitCasing", new String[]{GoodGenerator.MOD_ID+":preciseUnitCasing/1", GoodGenerator.MOD_ID+":preciseUnitCasing/2", GoodGenerator.MOD_ID+":preciseUnitCasing/3"});
+    public static final Block compactFusionCoil = new Casing("compactFusionCoil", new String[]{GoodGenerator.MOD_ID+":fuison/1"});
 
     public static Block essentiaHatch;
 
@@ -152,6 +153,7 @@ public class Loaders {
         GameRegistry.registerBlock(supercriticalFluidTurbineCasing, MyItemBlocks.class, "supercriticalFluidTurbineCasing");
         GameRegistry.registerBlock(pressureResistantWalls, MyItemBlocks.class, "pressureResistantWalls");
         GameRegistry.registerBlock(preciseUnitCasing, MyItemBlocks.class, "preciseUnitCasing");
+        GameRegistry.registerBlock(compactFusionCoil, MyItemBlocks.class, "compactFusionCoil");
         GameRegistry.registerItem(radiationProtectionPlate, "radiationProtectionPlate", GoodGenerator.MOD_ID);
         GameRegistry.registerItem(wrappedUraniumIngot, "wrappedUraniumIngot", GoodGenerator.MOD_ID);
         GameRegistry.registerItem(highDensityUraniumNugget, "highDensityUraniumNugget", GoodGenerator.MOD_ID);

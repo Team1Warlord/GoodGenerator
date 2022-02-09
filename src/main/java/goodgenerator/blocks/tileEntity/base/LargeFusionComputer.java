@@ -5,9 +5,9 @@ import com.github.technus.tectech.thing.metaTileEntity.multi.base.GT_MetaTileEnt
 import com.gtnewhorizon.structurelib.alignment.constructable.IConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import goodgenerator.client.GUI.LargeFusionComputerGUIClient;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
-import gregtech.api.gui.GT_Container_MultiMachine;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -19,7 +19,6 @@ import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.render.TextureFactory;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
-import gregtech.common.gui.GT_GUIContainer_FusionReactor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -92,13 +91,8 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
     }
 
     @Override
-    public Object getServerGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_Container_MultiMachine(aPlayerInventory, aBaseMetaTileEntity);
-    }
-
-    @Override
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_FusionReactor(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "FusionComputer.png", GT_Recipe.GT_Recipe_Map.sFusionRecipes.mNEIName);
+        return new LargeFusionComputerGUIClient(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "EMDisplay.png");
     }
 
     @Override
@@ -371,14 +365,14 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
     private boolean addEnergyInjector(IGregTechTileEntity aBaseMetaTileEntity, int aBaseCasingIndex) {
         IMetaTileEntity aMetaTileEntity = aBaseMetaTileEntity.getMetaTileEntity();
         if (aMetaTileEntity == null) return false;
-        if (aBaseMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy) {
-            GT_MetaTileEntity_Hatch_Energy tHatch = (GT_MetaTileEntity_Hatch_Energy) aBaseMetaTileEntity;
+        if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_Energy) {
+            GT_MetaTileEntity_Hatch_Energy tHatch = (GT_MetaTileEntity_Hatch_Energy) aMetaTileEntity;
             if (tHatch.mTier < hatchTier()) return false;
             tHatch.updateTexture(aBaseCasingIndex);
             return mEnergyHatches.add(tHatch);
         }
-        else if (aBaseMetaTileEntity instanceof GT_MetaTileEntity_Hatch_EnergyMulti) {
-            GT_MetaTileEntity_Hatch_EnergyMulti tHatch = (GT_MetaTileEntity_Hatch_EnergyMulti) aBaseMetaTileEntity;
+        else if (aMetaTileEntity instanceof GT_MetaTileEntity_Hatch_EnergyMulti) {
+            GT_MetaTileEntity_Hatch_EnergyMulti tHatch = (GT_MetaTileEntity_Hatch_EnergyMulti) aMetaTileEntity;
             if (tHatch.mTier < hatchTier()) return false;
             tHatch.updateTexture(aBaseCasingIndex);
             return eEnergyMulti.add(tHatch);

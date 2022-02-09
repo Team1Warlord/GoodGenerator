@@ -2,6 +2,7 @@ package goodgenerator.blocks.tileEntity;
 
 import com.github.bartimaeusnek.bartworks.common.loaders.ItemRegistry;
 import goodgenerator.blocks.tileEntity.base.LargeFusionComputer;
+import goodgenerator.loader.Loaders;
 import goodgenerator.util.DescTextLocalization;
 import gregtech.api.GregTech_API;
 import gregtech.api.interfaces.ITexture;
@@ -48,9 +49,9 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
                 .addInfo("The structure is too complex!")
                 .addInfo(BLUE_PRINT_INFO)
                 .addSeparator()
-                .addEnergyHatch("1-32, Specified casings", 3)
-                .addInputHatch("2-32, Specified casings", 1)
-                .addOutputHatch("1-32, Specified casings", 2)
+                .addEnergyHatch("1-32, Hint block with dot 3", 3)
+                .addInputHatch("2-32, Hint block with dot 1", 1)
+                .addOutputHatch("1-32, Hint block with dot 2", 2)
                 .addStructureInfo("ALL Hatches must be LuV or better")
                 .toolTipFinisher("Good Generator");
         if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
@@ -77,12 +78,12 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
 
     @Override
     public Block getCoilBlock() {
-        return GregTech_API.sBlockCasings1;
+        return Loaders.compactFusionCoil;
     }
 
     @Override
     public int getCoilMeta() {
-        return 15;
+        return 0;
     }
 
     @Override
