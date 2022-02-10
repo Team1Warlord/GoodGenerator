@@ -17,6 +17,7 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Outpu
 import gregtech.api.objects.GT_ChunkManager;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.render.TextureFactory;
+import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import net.minecraft.block.Block;
@@ -148,7 +149,6 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        super.onPostTick(aBaseMetaTileEntity, aTick);
         if (aBaseMetaTileEntity.isServerSide() && !aBaseMetaTileEntity.isAllowedToWork()) {
             // if machine has stopped, stop chunkloading
             GT_ChunkManager.releaseTicket((TileEntity)aBaseMetaTileEntity);
@@ -190,6 +190,9 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                                 if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock() * 64) < maxEUStore()
                                         && tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(2048 * tierOverclock() * 64, false)) {
                                     aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock() * 64, true);
+                                } else if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock()) < maxEUStore()
+                                        && tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(2048 * tierOverclock(), false)) {
+                                    aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock(), true);
                                 }
                             }
                     }
@@ -199,6 +202,9 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                                 if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock() * 64) < maxEUStore()
                                         && tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(2048 * tierOverclock() * 64, false)) {
                                     aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock() * 64, true);
+                                } else if (aBaseMetaTileEntity.getStoredEU() + (2048 * tierOverclock()) < maxEUStore()
+                                        && tHatch.getBaseMetaTileEntity().decreaseStoredEnergyUnits(2048 * tierOverclock(), false)) {
+                                    aBaseMetaTileEntity.increaseStoredEnergyUnits(2048 * tierOverclock(), true);
                                 }
                             }
                     }
@@ -217,7 +223,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                             mProgresstime = 0;
                             mMaxProgresstime = 0;
                             mEfficiencyIncrease = 0;
-                            this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
+                            this.mEUStore = (int) getBaseMetaTileEntity().getStoredEU();
                             if (aBaseMetaTileEntity.isAllowedToWork())
                                 checkRecipe(mInventory[1]);
                         }
@@ -225,13 +231,13 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                         if (aTick % 100 == 0 || aBaseMetaTileEntity.hasWorkJustBeenEnabled() || aBaseMetaTileEntity.hasInventoryBeenModified()) {
                             turnCasingActive(mMaxProgresstime > 0);
                             if (aBaseMetaTileEntity.isAllowedToWork()) {
-                                this.mEUStore = (int) aBaseMetaTileEntity.getStoredEU();
+                                this.mEUStore = (int) getBaseMetaTileEntity().getStoredEU();
                                 if (checkRecipe(mInventory[1])) {
                                     if (this.mEUStore < this.mLastRecipe.mSpecialValue - this.mEUt) {
                                         mMaxProgresstime = 0;
                                         turnCasingActive(false);
                                     }
-                                    aBaseMetaTileEntity.decreaseStoredEnergyUnits(this.mLastRecipe.mSpecialValue - this.mEUt, true);
+                                    getBaseMetaTileEntity().decreaseStoredEnergyUnits(this.mLastRecipe.mSpecialValue - this.mEUt, false);
                                 }
                             }
                             if (mMaxProgresstime <= 0)
@@ -325,13 +331,13 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
         if (tFluidList.size() > 1) {
             FluidStack[] tFluids = tFluidList.toArray(new FluidStack[0]);
-            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sFusionRecipes.findRecipe(this.getBaseMetaTileEntity(), this.mLastRecipe, false, GT_Values.V[8], tFluids);
+            GT_Recipe tRecipe = GT_Recipe.GT_Recipe_Map.sFusionRecipes.findRecipe(this.getBaseMetaTileEntity(), this.mLastRecipe, false, Integer.MAX_VALUE, tFluids);
             if ((tRecipe == null && !mRunningOnLoad) || (maxEUStore() < tRecipe.mSpecialValue)) {
                 turnCasingActive(false);
                 this.mLastRecipe = null;
                 return false;
             }
-            int pall = handleParallelRecipe(tRecipe, tFluids, null, Math.min(64, mEnergyHatches.size() * 2048 * tierOverclock() / tRecipe.mEUt));
+            int pall = handleParallelRecipe(tRecipe, tFluids, null, Math.min(64, (int) (getMaxEUInput() / tRecipe.mEUt / overclock(tRecipe.mSpecialValue))));
             this.para = pall;
             if (mRunningOnLoad || pall > 0) {
                 this.mLastRecipe = tRecipe;
@@ -345,6 +351,21 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
             }
         }
         return false;
+    }
+
+    public long getMaxEUInput() {
+        long sum = 0;
+        for (GT_MetaTileEntity_Hatch_Energy hatch : mEnergyHatches) {
+            if (isValidMetaTileEntity(hatch)) {
+                sum += Math.min(2048 * tierOverclock() * 64, hatch.maxEUInput() * hatch.maxAmperesIn());
+            }
+        }
+        for (GT_MetaTileEntity_Hatch_EnergyMulti hatch : eEnergyMulti) {
+            if (isValidMetaTileEntity(hatch)) {
+                sum += Math.min(2048 * tierOverclock() * 64, hatch.maxEUInput() * hatch.maxAmperesIn());
+            }
+        }
+        return sum;
     }
 
     @Override

@@ -63,7 +63,7 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
 
     @Override
     public long maxEUStore() {
-        return 160003000L * (Math.min(32, this.mEnergyHatches.size() + this.eEnergyMulti.size())) / 32L;
+        return 160008000L * (Math.min(32, this.mEnergyHatches.size() + this.eEnergyMulti.size())) / 32L;
     }
 
     @Override
