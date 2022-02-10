@@ -89,7 +89,7 @@ public class Loaders {
     public static final Block supercriticalFluidTurbineCasing = new TurbineCasing("supercriticalFluidTurbineCasing", "supercriticalFluidTurbineCasing");
     public static final Block pressureResistantWalls = new Casing("pressureResistantWalls", new String[]{GoodGenerator.MOD_ID+":pressureResistantWalls"});
     public static final Block preciseUnitCasing = new Casing("preciseUnitCasing", new String[]{GoodGenerator.MOD_ID+":preciseUnitCasing/1", GoodGenerator.MOD_ID+":preciseUnitCasing/2", GoodGenerator.MOD_ID+":preciseUnitCasing/3"});
-    public static final Block compactFusionCoil = new Casing("compactFusionCoil", new String[]{GoodGenerator.MOD_ID+":fuison/1"});
+    public static final Block compactFusionCoil = new Casing("compactFusionCoil", new String[]{GoodGenerator.MOD_ID+":fuison/1", GoodGenerator.MOD_ID+":fuison/2", GoodGenerator.MOD_ID+":fuison/3"});
 
     public static Block essentiaHatch;
 
@@ -126,6 +126,7 @@ public class Loaders {
         Loaders.XHE = new ExtremeHeatExchanger(IDOffset + 16, "ExtremeHeatExchanger", "Extreme Heat Exchanger").getStackForm(1L);
         Loaders.PA = new PreciseAssembler(IDOffset + 17, "PreciseAssembler", "Precise Auto-Assembler MT-3662").getStackForm(1L);
         Loaders.LFC[0] = new LargeFusionComputer1(IDOffset + 18, "LargeFusionComputer1", "Compact Fusion Computer MK-I Prototype").getStackForm(1);
+        Loaders.LFC[1] = new LargeFusionComputer2(IDOffset + 19, "LargeFusionComputer2", "Compact Fusion Computer MK-II").getStackForm(1L);
         Loaders.Generator_Diesel[0] = new DieselGenerator(1113, "basicgenerator.diesel.tier.04", "Turbo Supercharging Combustion Generator", 4).getStackForm(1L);
         Loaders.Generator_Diesel[1] = new DieselGenerator(1114, "basicgenerator.diesel.tier.05", "Ultimate Chemical Energy Releaser", 5).getStackForm(1L);
         CrackRecipeAdder.registerPipe(30995, MyMaterial.incoloy903, 15000, 8000, true);

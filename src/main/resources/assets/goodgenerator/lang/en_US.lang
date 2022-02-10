@@ -34,6 +34,8 @@ preciseUnitCasing.0.name=Precise Electronic Unit Casing MK-I
 preciseUnitCasing.1.name=Precise Electronic Unit Casing MK-II
 preciseUnitCasing.2.name=Precise Electronic Unit Casing MK-III
 compactFusionCoil.0.name=Ameliorated Superconduct Coil
+compactFusionCoil.1.name=Compact Fusion Coil
+compactFusionCoil.2.name=Advanced Compact Fusion Coil
 
 #Items
 item.radiationProtectionPlate.name=Radiation Proof Plate
