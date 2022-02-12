@@ -119,7 +119,7 @@ public class LargeFusionComputer2 extends LargeFusionComputer {
 
     @Override
     public String[] getStructureDescription(ItemStack stackSize) {
-        return DescTextLocalization.addText("LargeFusion.hint", 3);
+        return DescTextLocalization.addText("LargeFusion2.hint", 9);
     }
 
     @Override

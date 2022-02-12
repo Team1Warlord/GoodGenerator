@@ -330,10 +330,13 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
         if (tierOverclock() == 2) {
             return mStartEnergy < 160000000 ? 2 : 1;
         }
-        if (this.tierOverclock() == 4) {
+        if (tierOverclock() == 4) {
             return (mStartEnergy < 160000000 ? 4 : (mStartEnergy < 320000000 ? 2 : 1));
         }
-        return (mStartEnergy < 160000000) ? 8 : ((mStartEnergy < 320000000) ? 4 : (mStartEnergy < 640000000) ? 2 : 1);
+        if (tierOverclock() == 8) {
+            return (mStartEnergy < 160000000) ? 8 : ((mStartEnergy < 320000000) ? 4 : (mStartEnergy < 640000000) ? 2 : 1);
+        }
+        return (mStartEnergy < 160000000) ? 16 : ((mStartEnergy < 320000000) ? 8 : ((mStartEnergy < 640000000) ? 4 : (mStartEnergy < 1280000000) ? 2 : 1));
     }
 
     @Override
@@ -589,9 +592,9 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
             "              CCCCCHHHHHHHHHCCCCC              ",
             "            CCCCHHHCC     CCHHHCCCC            ",
             "           CCCHHCCCCC     CCCCCHHCCC           ",
-            "          CCHHCCCCC FCCCCCF CCCCCHHCC          ",
+            "          ECHHCCCCC FCCCCCF CCCCCHHCE          ",
             "         CCHCCCC               CCCCHCC         ",
-            "        ECHCCC                   CCCHCE        ",
+            "        CCHCCC                   CCCHCC        ",
             "       CCHCE                       ECHCC       ",
             "      ECHCC                         CCHCE      ",
             "     CCHCE                           ECHCC     ",
@@ -621,9 +624,9 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
             "     CCHCE                           ECHCC     ",
             "      ECHCC                         CCHCE      ",
             "       CCHCE                       ECHCC       ",
-            "        ECHCCC                   CCCHCE        ",
+            "        CCHCCC                   CCCHCC        ",
             "         CCHCCCC               CCCCHCC         ",
-            "          CCHHCCCCC FCCCCCF CCCCCHHCC          ",
+            "          ECHHCCCCC FCCCCCF CCCCCHHCE          ",
             "           CCCHHCCCCC     CCCCCHHCCC           ",
             "            CCCCHHHCC     CCHHHCCCC            ",
             "              CCCCCHHHHHHHHHCCCCC              ",

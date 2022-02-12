@@ -131,6 +131,9 @@ public class Loaders {
         Loaders.LFC[0] = new LargeFusionComputer1(IDOffset + 18, "LargeFusionComputer1", "Compact Fusion Computer MK-I Prototype").getStackForm(1);
         Loaders.LFC[1] = new LargeFusionComputer2(IDOffset + 19, "LargeFusionComputer2", "Compact Fusion Computer MK-II").getStackForm(1L);
         Loaders.LFC[2] = new LargeFusionComputer3(IDOffset + 20, "LargeFusionComputer3", "Compact Fusion Computer MK-III").getStackForm(1L);
+        if (LoadedList.GTPP) {
+            Loaders.LFC[3] = new LargeFusionComputer4(IDOffset + 21, "LargeFusionComputer4", "Compact Fusion Computer MK-IV Prototype").getStackForm(1L);
+        }
         Loaders.Generator_Diesel[0] = new DieselGenerator(1113, "basicgenerator.diesel.tier.04", "Turbo Supercharging Combustion Generator", 4).getStackForm(1L);
         Loaders.Generator_Diesel[1] = new DieselGenerator(1114, "basicgenerator.diesel.tier.05", "Ultimate Chemical Energy Releaser", 5).getStackForm(1L);
         CrackRecipeAdder.registerPipe(30995, MyMaterial.incoloy903, 15000, 8000, true);
