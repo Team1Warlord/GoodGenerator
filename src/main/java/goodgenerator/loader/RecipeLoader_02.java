@@ -1246,24 +1246,7 @@ public class RecipeLoader_02 {
                         MyMaterial.dalisenite.getMolten(576),
                         MyMaterial.hikarium.getMolten(144)
                 },
-                ItemRefer.Compact_Fusion_Coil_T2.get(1),
-                114514,
-                800,
-                3
-        );
-
-        MyRecipeAdder.instance.addPreciseAssemblerRecipe(
-                new ItemStack[] {
-                        ItemRefer.Compact_Fusion_Coil_T1.get(1),
-                        ItemRefer.Radiation_Protection_Plate.get(2),
-                        ItemList.QuantumStar.get(4),
-                        ItemRefer.HiC_T4.get(1)
-                },
-                new FluidStack[] {
-                        Materials.TungstenCarbide.getMolten(1152),
-                        MyMaterial.hikarium.getMolten(144)
-                },
-                ItemRefer.Compact_Fusion_Coil_T2.get(1),
+                ItemRefer.Compact_Fusion_Coil_T2.get(2),
                 114514,
                 800,
                 3
