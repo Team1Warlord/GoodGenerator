@@ -1,5 +1,6 @@
 package goodgenerator.loader;
 
+import com.github.bartimaeusnek.bartworks.common.loaders.ItemRegistry;
 import goodgenerator.crossmod.LoadedList;
 import goodgenerator.items.MyMaterial;
 import goodgenerator.util.CrackRecipeAdder;
@@ -1181,6 +1182,22 @@ public class RecipeLoader_02 {
                     ItemRefer.Precise_Electronic_Unit_T3.get(4),
                     4800,
                     491520
+            );
+
+            GT_Values.RA.addFluidSolidifierRecipe(
+                    new ItemStack(ItemRegistry.bw_realglas, 1, 5),
+                    Materials.Uranium235.getMolten(2304),
+                    ItemRefer.Uranium_Glass.get(1),
+                    800,
+                    491520
+            );
+
+            GT_Values.RA.addFluidSolidifierRecipe(
+                    ItemRefer.Uranium_Glass.get(1),
+                    Materials.Europium.getMolten(4608),
+                    ItemRefer.Europium_Glass.get(1),
+                    800,
+                    1966080
             );
         }
 

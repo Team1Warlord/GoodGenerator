@@ -5,6 +5,7 @@ import goodgenerator.blocks.tileEntity.base.LargeFusionComputer;
 import goodgenerator.loader.Loaders;
 import goodgenerator.util.DescTextLocalization;
 import gregtech.api.GregTech_API;
+import gregtech.api.enums.Materials;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
@@ -39,19 +40,19 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
         tt.addMachineType("Fusion Reactor")
                 .addInfo("Millions of nuclear.")
                 .addInfo("Controller block for the Compact Fusion Reactor MK-I Prototype.")
-                .addInfo("131072EU/t and 5M EU capacity per Energy Hatch")
+                .addInfo("524288EU/t and 5M EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
                 .addInfo("number of energy hatches * cap, you can't do it")
                 .addInfo("Make sure the whole structure is built in the 3x3")
                 .addInfo("chuck area of the ring center (not controller).")
-                .addInfo("It can run 64x recipes at most.")
+                .addInfo("It can run 256x recipes at most.")
                 .addInfo("Support" + EnumChatFormatting.BLUE + " Tec" + EnumChatFormatting.DARK_BLUE + "Tech" + EnumChatFormatting.GRAY + " Energy/Laser Hatches!")
                 .addInfo("The structure is too complex!")
                 .addInfo(BLUE_PRINT_INFO)
                 .addSeparator()
                 .addEnergyHatch("1-32, Hint block with dot 3", 3)
-                .addInputHatch("2-32, Hint block with dot 1", 1)
-                .addOutputHatch("1-32, Hint block with dot 2", 2)
+                .addInputHatch("2-16, Hint block with dot 1", 1)
+                .addOutputHatch("1-16, Hint block with dot 2", 2)
                 .addStructureInfo("ALL Hatches must be LuV or better")
                 .toolTipFinisher("Good Generator");
         if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
@@ -99,6 +100,11 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
     @Override
     public int hatchTier() {
         return 6;
+    }
+
+    @Override
+    public Materials getFrameBox() {
+        return Materials.NaquadahAlloy;
     }
 
     @Override
