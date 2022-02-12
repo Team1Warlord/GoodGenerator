@@ -36,6 +36,10 @@ preciseUnitCasing.2.name=Precise Electronic Unit Casing MK-III
 compactFusionCoil.0.name=Ameliorated Superconduct Coil
 compactFusionCoil.1.name=Compact Fusion Coil
 compactFusionCoil.2.name=Advanced Compact Fusion Coil
+compactFusionCoil.3.name=Compact Fusion Coil MK-II Prototype
+compactFusionCoil.4.name=Compact Fusion Coil MK-II Finaltype
+ggGlasses.0.name=Uranium Reinforced Borosilicate Glass Block
+ggGlasses.1.name=Europium Reinforced Borosilicate Glass Block
 
 #Items
 item.radiationProtectionPlate.name=Radiation Proof Plate

@@ -6,7 +6,6 @@ import com.gtnewhorizon.structurelib.alignment.constructable.IConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
 import goodgenerator.client.GUI.LargeFusionComputerGUIClient;
-import gregtech.api.enums.GT_Values;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -17,7 +16,6 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch_Outpu
 import gregtech.api.objects.GT_ChunkManager;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.render.TextureFactory;
-import gregtech.api.util.GT_Log;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import net.minecraft.block.Block;
@@ -51,7 +49,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
         protected IStructureDefinition<LargeFusionComputer> computeValue(Class<?> type) {
             return StructureDefinition.<LargeFusionComputer>builder()
                     .addShape(MAIN_NAME, transpose(new String[][]{
-                            L0, L1, L2, L3, L4, L3B, L2, L1, L0
+                            L2, L3, L4, L3B, L2
                     }))
                     .addElement(
                             'C', lazy(x -> ofBlock(x.getCoilBlock(), x.getCoilMeta()))
@@ -126,7 +124,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     @Override
     public boolean checkMachine_EM(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
-        if (structureCheck_EM(MAIN_NAME, 16, 3, 26) && mInputHatches.size() > 1 && !mOutputHatches.isEmpty() && (mEnergyHatches.size() + eEnergyMulti.size()) != 0) {
+        if (structureCheck_EM(MAIN_NAME, 16, 1, 25) && mInputHatches.size() > 1 && !mOutputHatches.isEmpty() && (mEnergyHatches.size() + eEnergyMulti.size()) != 0) {
             fixAllIssue();
             return true;
         }
@@ -144,7 +142,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     @Override
     public void construct(ItemStack itemStack, boolean b) {
-        structureBuild_EM(MAIN_NAME, 16, 3, 26, b, itemStack);
+        structureBuild_EM(MAIN_NAME, 16, 1, 25, b, itemStack);
     }
 
     @Override
@@ -289,6 +287,11 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
     @Override
     public boolean isCorrectMachinePart(ItemStack aStack) {
         return true;
+    }
+
+    @Override
+    public void onMachineBlockUpdate() {
+        mUpdate = 100;
     }
 
     @Override
@@ -471,214 +474,136 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                         EnumChatFormatting.YELLOW + GT_Utility.formatNumbers(plasmaOut) + EnumChatFormatting.RESET + "L/t"};
     }
 
-    public static final String[] L0 = {
-            "                                 ",
-            "                                 ",
-            "              C   C              ",
-            "              C   C              ",
-            "              C   C              ",
-            "              C   C              ",
-            "      C       C   C       C      ",
-            "       C                 C       ",
-            "        C               C        ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "  CCCCC                   CCCCC  ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "  CCCCC                   CCCCC  ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "        C               C        ",
-            "       C                 C       ",
-            "      C       C   C       C      ",
-            "              C   C              ",
-            "              C   C              ",
-            "              C   C              ",
-            "              C   C              ",
-            "                                 ",
-            "                                 ",
-    };
-    public static final String[] L1 = {
-            "                                 ",
-            "              C   C              ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "     C                     C     ",
-            "                                 ",
-            "              C   C              ",
-            "                                 ",
-            "         C             C         ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            " C     C                 C     C ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            " C     C                 C     C ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "         C             C         ",
-            "                                 ",
-            "              C   C              ",
-            "                                 ",
-            "     C                     C     ",
-            "                                 ",
-            "                                 ",
-            "                                 ",
-            "              C   C              ",
-            "                                 ",
-    };
     public static final String[] L2 = {
-            "              C   C              ",
             "                                 ",
             "                                 ",
             "              HIHIH              ",
-            "    C     HHHHHBBBHHHHH     C    ",
+            "          HHHHHBBBHHHHH          ",
             "       HHHHBBHHIHIHHBBHHHH       ",
             "       HBHHHHH     HHHHHBH       ",
             "     HHHHH             HHHHH     ",
-            "     HBH      C   C      HBH     ",
+            "     HBH                 HBH     ",
             "     HHH                 HHH     ",
-            "    HHH   C           C   HHH    ",
+            "    HHH                   HHH    ",
             "    HBH                   HBH    ",
             "    HBH                   HBH    ",
             "    HHH                   HHH    ",
-            "C  HHH  C               C  HHH  C",
+            "   HHH                     HHH   ",
             "   IBI                     IBI   ",
             "   HBH                     HBH   ",
             "   IBI                     IBI   ",
-            "C  HHH  C               C  HHH  C",
+            "   HHH                     HHH   ",
             "    HHH                   HHH    ",
             "    HBH                   HBH    ",
             "    HBH                   HBH    ",
-            "    HHH   C           C   HHH    ",
+            "    HHH                   HHH    ",
             "     HHH                 HHH     ",
-            "     HBH      C   C      HBH     ",
+            "     HBH                 HBH     ",
             "     HHHHH             HHHHH     ",
             "       HBHHHHH     HHHHHBH       ",
             "       HHHHBBHHIHIHHBBHHHH       ",
-            "    C     HHHHHBBBHHHHH     C    ",
+            "          HHHHHBBBHHHHH          ",
             "              HIHIH              ",
             "                                 ",
-            "                                 ",
-            "              C   C              ",
+            "                                 "
     };
     public static final String[] L3 = {
-            "              C   C              ",
-            "                                 ",
-            "              HOHOH              ",
-            "          HHHHHHHHHHHHH          ",
-            "    C  HHHHHHH     HHHHHHH  C    ",
-            "      EHHH    HHHHH    HHHE      ",
-            "     EH   HHHHHOHOHHHHH   HE     ",
-            "    HH  HHHHHH     HHHHHH  HH    ",
-            "    HH HHE    C   C    EHH HH    ",
-            "    HH HE               EH HH    ",
-            "   HH HH  C           C  HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "C HH HH C               C HH HH C",
-            "  OH HO                   OH HO  ",
-            "  HH HH                   HH HH  ",
-            "  OH HO                   OH HO  ",
-            "C HH HH C               C HH HH C",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH  C           C  HH HH   ",
-            "    HH HE               EH HH    ",
-            "    HH HHE    C   C    EHH HH    ",
-            "    HH  HHHHHH     HHHHHH  HH    ",
-            "     EH   HHHHHO~OHHHHH   HE     ",
-            "      EHHH    HHHHH    HHHE      ",
-            "    C  HHHHHHH     HHHHHHH  C    ",
-            "          HHHHHHHHHHHHH          ",
-            "              HOHOH              ",
-            "                                 ",
-            "              C   C              ",
+            "              CCCCC              ",
+            "          CCCCHOHOHCCCC          ",
+            "       CCCHHHHHHHHHHHHHCCC       ",
+            "      CHHHHHHH     HHHHHHHC      ",
+            "     CEHHH    HHHHH    HHHEC     ",
+            "    CEH   HHHHHOHOHHHHH   HEC    ",
+            "   CHH  HHHHHH     HHHHHH  HHC   ",
+            "   CHH HHE             EHH HHC   ",
+            "   CHH HE               EH HHC   ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            " CHH HH                   HH HHC ",
+            " COH HO                   OH HOC ",
+            " CHH HH                   HH HHC ",
+            " COH HO                   OH HOC ",
+            " CHH HH                   HH HHC ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "   CHH HE               EH HHC   ",
+            "   CHH HHE             EHH HHC   ",
+            "   CHH  HHHHHH     HHHHHH  HHC   ",
+            "    CEH   HHHHHO~OHHHHH   HEC    ",
+            "     CEHHH    HHHHH    HHHEC     ",
+            "      CHHHHHHH     HHHHHHHC      ",
+            "       CCCHHHHHHHHHHHHHCCC       ",
+            "          CCCCHOHOHCCCC          ",
+            "              CCCCC              ",
     };
     public static final String[] L3B = {
-            "              C   C              ",
-            "                                 ",
-            "              HOHOH              ",
-            "          HHHHHHHHHHHHH          ",
-            "    C  HHHHHHH     HHHHHHH  C    ",
-            "      EHHH    HHHHH    HHHE      ",
-            "     EH   HHHHHOHOHHHHH   HE     ",
-            "    HH  HHHHHH     HHHHHH  HH    ",
-            "    HH HHE    C   C    EHH HH    ",
-            "    HH HE               EH HH    ",
-            "   HH HH  C           C  HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "C HH HH C               C HH HH C",
-            "  OH HO                   OH HO  ",
-            "  HH HH                   HH HH  ",
-            "  OH HO                   OH HO  ",
-            "C HH HH C               C HH HH C",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH                 HH HH   ",
-            "   HH HH  C           C  HH HH   ",
-            "    HH HE               EH HH    ",
-            "    HH HHE    C   C    EHH HH    ",
-            "    HH  HHHHHH     HHHHHH  HH    ",
-            "     EH   HHHHHOHOHHHHH   HE     ",
-            "      EHHH    HHHHH    HHHE      ",
-            "    C  HHHHHHH     HHHHHHH  C    ",
-            "          HHHHHHHHHHHHH          ",
-            "              HOHOH              ",
-            "                                 ",
-            "              C   C              ",
+            "              CCCCC              ",
+            "          CCCCHOHOHCCCC          ",
+            "       CCCHHHHHHHHHHHHHCCC       ",
+            "      CHHHHHHH     HHHHHHHC      ",
+            "     CEHHH    HHHHH    HHHEC     ",
+            "    CEH   HHHHHOHOHHHHH   HEC    ",
+            "   CHH  HHHHHH     HHHHHH  HHC   ",
+            "   CHH HHE             EHH HHC   ",
+            "   CHH HE               EH HHC   ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            " CHH HH                   HH HHC ",
+            " COH HO                   OH HOC ",
+            " CHH HH                   HH HHC ",
+            " COH HO                   OH HOC ",
+            " CHH HH                   HH HHC ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "  CHH HH                 HH HHC  ",
+            "   CHH HE               EH HHC   ",
+            "   CHH HHE             EHH HHC   ",
+            "   CHH  HHHHHH     HHHHHH  HHC   ",
+            "    CEH   HHHHHOHOHHHHH   HEC    ",
+            "     CEHHH    HHHHH    HHHEC     ",
+            "      CHHHHHHH     HHHHHHHC      ",
+            "       CCCHHHHHHHHHHHHHCCC       ",
+            "          CCCCHOHOHCCCC          ",
+            "              CCCCC              ",
     };
     public static final String[] L4 = {
-            "              C   C              ",
             "                                 ",
             "              HBBBH              ",
             "          HBBH     HBBH          ",
-            "    C  HBH             HBH  C    ",
+            "       HBH             HBH       ",
             "      B                   B      ",
             "     B        HBBBH        B     ",
             "    H     HBBH     HBBH     H    ",
-            "    B    B    C   C    B    B    ",
+            "    B    B             B    B    ",
             "    H   B               B   H    ",
-            "   H   H  C           C  H   H   ",
-            "   B   B                 B   B   ",
-            "   B   B                 B   B   ",
-            "   H   H                 H   H   ",
-            "C H   H C               C H   H C",
-            "  B   B                   B   B  ",
-            "  B   B                   B   B  ",
-            "  B   B                   B   B  ",
-            "C H   H C               C H   H C",
             "   H   H                 H   H   ",
             "   B   B                 B   B   ",
             "   B   B                 B   B   ",
-            "   H   H  C           C  H   H   ",
+            "   H   H                 H   H   ",
+            "  H   H                   H   H  ",
+            "  B   B                   B   B  ",
+            "  B   B                   B   B  ",
+            "  B   B                   B   B  ",
+            "  H   H                   H   H  ",
+            "   H   H                 H   H   ",
+            "   B   B                 B   B   ",
+            "   B   B                 B   B   ",
+            "   H   H                 H   H   ",
             "    H   B               B   H    ",
-            "    B    B    C   C    B    B    ",
+            "    B    B             B    B    ",
             "    H     HBBH     HBBH     H    ",
             "     B        HBBBH        B     ",
             "      B                   B      ",
-            "    C  HBH             HBH  C    ",
+            "       HBH             HBH       ",
             "          HBBH     HBBH          ",
             "              HBBBH              ",
-            "                                 ",
-            "              C   C              ",
+            "                                 "
     };
 }

@@ -138,6 +138,7 @@ public final class ItemRefer {
     public static ItemRefer Precise_Assembler = getItemStack(PA);
     public static ItemRefer Compact_Fusion_MK1 = getItemStack(LFC[0]);
     public static ItemRefer Compact_Fusion_MK2 = getItemStack(LFC[1]);
+    public static ItemRefer Compact_Fusion_MK3 = getItemStack(LFC[2]);
 
     private Item mItem = null;
     private Block mBlock = null;
