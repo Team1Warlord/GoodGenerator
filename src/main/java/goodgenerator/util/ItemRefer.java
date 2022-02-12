@@ -125,6 +125,8 @@ public final class ItemRefer {
     public static ItemRefer Compact_Fusion_Coil_T0 = getItemStack(compactFusionCoil, 0);
     public static ItemRefer Compact_Fusion_Coil_T1 = getItemStack(compactFusionCoil, 1);
     public static ItemRefer Compact_Fusion_Coil_T2 = getItemStack(compactFusionCoil, 2);
+    public static ItemRefer Compact_Fusion_Coil_T3 = getItemStack(compactFusionCoil, 3);
+    public static ItemRefer Compact_Fusion_Coil_T4 = getItemStack(compactFusionCoil, 4);
     public static ItemRefer Uranium_Glass = getItemStack(newGlass, 0);
     public static ItemRefer Europium_Glass = getItemStack(newGlass, 1);
 

@@ -1239,6 +1239,19 @@ public class MyMaterial implements Runnable {
             new Pair<>(Erbium, 3)
     );
 
+    public static final Werkstoff hikarium = new Werkstoff(
+            new short[]{0xff,0xd6,0xfb},
+            "Hikarium",
+            new Werkstoff.Stats().setBlastFurnace(true).setMeltingPoint(5400).setCentrifuge(true),
+            Werkstoff.Types.MIXTURE,
+            new Werkstoff.GenerationFeatures().onlyDust().addMolten().addMetalItems().addCraftingMetalWorkingItems().addMixerRecipes((short) 3),
+            OffsetID + 104,
+            TextureSet.SET_SHINY,
+            new Pair<>(lumiium, 18),
+            new Pair<>(Silver, 8),
+            new Pair<>(Sunnarium, 4)
+    );
+
     @Override
     public void run() { }
 }
