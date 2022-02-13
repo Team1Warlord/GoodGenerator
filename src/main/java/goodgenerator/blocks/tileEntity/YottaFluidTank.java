@@ -410,12 +410,12 @@ public class YottaFluidTank extends GT_MetaTileEntity_MultiblockBase_EM implemen
 
     @Override
     public void construct(ItemStack stackSize, boolean hintsOnly) {
-        structureBuild_EM(YOTTANK_BOTTOM, 2, 0, 0, hintsOnly, stackSize);
+        structureBuild_EM(YOTTANK_BOTTOM, 2, 0, 0, stackSize, hintsOnly);
         int height = stackSize.stackSize;
         if (height > 15) height = 15;
-        structureBuild_EM(YOTTANK_TOP, 2, height + 2, 0, hintsOnly, stackSize);
+        structureBuild_EM(YOTTANK_TOP, 2, height + 2, 0, stackSize, hintsOnly);
         while (height > 0) {
-            structureBuild_EM(YOTTANK_MID, 2, height, 0, hintsOnly, stackSize);
+            structureBuild_EM(YOTTANK_MID, 2, height, 0, stackSize, hintsOnly);
             height --;
         }
     }

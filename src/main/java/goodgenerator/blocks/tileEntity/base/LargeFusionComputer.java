@@ -150,7 +150,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     @Override
     public void construct(ItemStack itemStack, boolean b) {
-        structureBuild_EM(MAIN_NAME, 23, 3, 40, b, itemStack);
+        structureBuild_EM(MAIN_NAME, 23, 3, 40, itemStack, b);
     }
 
     @Override

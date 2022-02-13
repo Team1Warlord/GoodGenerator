@@ -180,7 +180,7 @@ public class UniversalChemicalFuelEngine extends GT_MetaTileEntity_MultiblockBas
 
     @Override
     public void construct(ItemStack itemStack, boolean b) {
-        structureBuild_EM(mName, 2, 2, 0, b, itemStack);
+        structureBuild_EM(mName, 2, 2, 0, itemStack, b);
     }
 
     @Override

@@ -60,7 +60,7 @@ public class LargeEssentiaGenerator extends GT_MetaTileEntity_MultiblockBase_EM 
 
     @Override
     public void construct(ItemStack itemStack, boolean b) {
-        structureBuild_EM(mName, 4, 0, 4, b, itemStack);
+        structureBuild_EM(mName, 4, 0, 4, itemStack, b);
     }
 
     @Override
