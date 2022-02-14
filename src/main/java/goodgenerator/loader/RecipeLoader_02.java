@@ -1186,22 +1186,6 @@ public class RecipeLoader_02 {
             );
         }
 
-        GT_Values.RA.addFluidSolidifierRecipe(
-                new ItemStack(ItemRegistry.bw_realglas, 1, 5),
-                Materials.Uranium235.getMolten(2304),
-                ItemRefer.Uranium_Glass.get(1),
-                800,
-                491520
-        );
-
-        GT_Values.RA.addFluidSolidifierRecipe(
-                ItemRefer.Uranium_Glass.get(1),
-                Materials.Europium.getMolten(4608),
-                ItemRefer.Europium_Glass.get(1),
-                800,
-                1966080
-        );
-
         MyRecipeAdder.instance.addPreciseAssemblerRecipe(
                 new ItemStack[] {
                         ItemList.Casing_Coil_Superconductor.get(1),

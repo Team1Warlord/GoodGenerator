@@ -1,5 +1,6 @@
 package goodgenerator.blocks.tileEntity;
 
+import com.github.bartimaeusnek.bartworks.common.loaders.ItemRegistry;
 import com.github.technus.tectech.thing.metaTileEntity.hatch.GT_MetaTileEntity_Hatch_EnergyMulti;
 import goodgenerator.blocks.tileEntity.base.LargeFusionComputer;
 import goodgenerator.loader.Loaders;
@@ -94,12 +95,12 @@ public class LargeFusionComputer4 extends LargeFusionComputer {
 
     @Override
     public Block getGlassBlock() {
-        return Loaders.newGlass;
+        return ItemRegistry.bw_realglas;
     }
 
     @Override
     public int getGlassMeta() {
-        return 0;
+        return 13;
     }
 
     @Override

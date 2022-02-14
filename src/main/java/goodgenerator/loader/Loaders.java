@@ -23,7 +23,6 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import goodgenerator.util.CrackRecipeAdder;
 import gregtech.api.enums.GT_Values;
-import gregtech.api.enums.Materials;
 import gregtech.api.enums.Textures;
 import gregtech.api.interfaces.ITexture;
 import gregtech.api.render.TextureFactory;
@@ -92,8 +91,6 @@ public class Loaders {
     public static final Block pressureResistantWalls = new Casing("pressureResistantWalls", new String[]{GoodGenerator.MOD_ID+":pressureResistantWalls"});
     public static final Block preciseUnitCasing = new Casing("preciseUnitCasing", new String[]{GoodGenerator.MOD_ID+":preciseUnitCasing/1", GoodGenerator.MOD_ID+":preciseUnitCasing/2", GoodGenerator.MOD_ID+":preciseUnitCasing/3"});
     public static final Block compactFusionCoil = new Casing("compactFusionCoil", new String[]{GoodGenerator.MOD_ID+":fuison/1", GoodGenerator.MOD_ID+":fuison/2", GoodGenerator.MOD_ID+":fuison/3", GoodGenerator.MOD_ID+":fuison/4", GoodGenerator.MOD_ID+":fuison/5"});
-    public static final Block newGlass = new GGGlass("ggGlasses", new String[] {GoodGenerator.MOD_ID+":UraniumReinforcedBoronSilicateGlassBlock", GoodGenerator.MOD_ID+":EuropiumReinforcedBoronSilicateGlassBlock"}, new short[][]{Materials.Uranium235.getRGBA(), Materials.Europium.getRGBA()});
-
     public static Block essentiaHatch;
 
     public static ItemStack MAR;
@@ -162,7 +159,6 @@ public class Loaders {
         GameRegistry.registerBlock(pressureResistantWalls, MyItemBlocks.class, "pressureResistantWalls");
         GameRegistry.registerBlock(preciseUnitCasing, MyItemBlocks.class, "preciseUnitCasing");
         GameRegistry.registerBlock(compactFusionCoil, MyItemBlocks.class, "compactFusionCoil");
-        GameRegistry.registerBlock(newGlass, MyItemBlocks.class, "ggGlasses");
         GameRegistry.registerItem(radiationProtectionPlate, "radiationProtectionPlate", GoodGenerator.MOD_ID);
         GameRegistry.registerItem(wrappedUraniumIngot, "wrappedUraniumIngot", GoodGenerator.MOD_ID);
         GameRegistry.registerItem(highDensityUraniumNugget, "highDensityUraniumNugget", GoodGenerator.MOD_ID);
