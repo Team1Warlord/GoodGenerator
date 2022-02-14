@@ -52,7 +52,7 @@ public class LargeFusionComputer4 extends LargeFusionComputer {
                 .addInfo("The structure is too complex!")
                 .addInfo(BLUE_PRINT_INFO)
                 .addSeparator()
-                .addCasingInfo("Fusion Machine Casing MK III", 1668)
+                .addCasingInfo("Fusion Machine Casing MK III", 1666)
                 .addCasingInfo("Compact Fusion Coil MK-II Prototype", 558)
                 .addCasingInfo("Infinity Frame Box", 128)
                 .addCasingInfo("Uranium Reinforced Borosilicate Glass Block", 63)

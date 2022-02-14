@@ -50,7 +50,7 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
                 .addInfo("The structure is too complex!")
                 .addInfo(BLUE_PRINT_INFO)
                 .addSeparator()
-                .addCasingInfo("LuV Machine Casing", 1668)
+                .addCasingInfo("LuV Machine Casing", 1666)
                 .addCasingInfo("Ameliorated Superconduct Coil", 558)
                 .addCasingInfo("Naquadah Alloy Frame Boxes", 128)
                 .addCasingInfo("Chrome Reinforced Borosilicate Glass Block", 63)
