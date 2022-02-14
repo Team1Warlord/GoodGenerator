@@ -1215,7 +1215,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Compact_Fusion_Coil_T0.get(1),
                 9001,
                 1200,
-                2
+                1
         );
 
         MyRecipeAdder.instance.addPreciseAssemblerRecipe(
@@ -1229,7 +1229,7 @@ public class RecipeLoader_02 {
                         MyMaterial.artheriumSn.getMolten(576),
                         MyMaterial.titaniumBetaC.getMolten(144)
                 },
-                ItemRefer.Compact_Fusion_Coil_T1.get(2),
+                ItemRefer.Compact_Fusion_Coil_T1.get(1),
                 14000,
                 800,
                 2
@@ -1246,7 +1246,7 @@ public class RecipeLoader_02 {
                         MyMaterial.dalisenite.getMolten(576),
                         MyMaterial.hikarium.getMolten(144)
                 },
-                ItemRefer.Compact_Fusion_Coil_T2.get(2),
+                ItemRefer.Compact_Fusion_Coil_T2.get(1),
                 114514,
                 800,
                 3
@@ -1254,7 +1254,7 @@ public class RecipeLoader_02 {
 
         GT_Values.RA.addAssemblerRecipe(
                 new ItemStack[] {
-                        ItemList.FusionComputer_LuV.get(8),
+                        ItemList.FusionComputer_LuV.get(16),
                         ItemRefer.HiC_T1.get(8),
                         MyMaterial.marCeM200.get(OrePrefixes.plate, 32),
                         GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Master, 8),
@@ -1265,14 +1265,14 @@ public class RecipeLoader_02 {
                 MyMaterial.adamantiumAlloy.getMolten(9216),
                 ItemRefer.Compact_Fusion_MK1.get(1),
                 1200,
-                300000
+                30000
         );
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.Compact_Fusion_MK1.get(1),
                 24000,
                 new Object[] {
-                        ItemList.FusionComputer_ZPMV.get(8),
+                        ItemList.FusionComputer_ZPMV.get(16),
                         new Object[] {"circuitUltimate", 1},
                         new Object[] {"circuitUltimate", 1},
                         new Object[] {"circuitUltimate", 1},
@@ -1298,7 +1298,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Compact_Fusion_MK2.get(1),
                 24000,
                 new Object[] {
-                        ItemList.FusionComputer_UV.get(8),
+                        ItemList.FusionComputer_UV.get(16),
                         new Object[] {"circuitSuperconductor", 1},
                         new Object[] {"circuitSuperconductor", 1},
                         new Object[] {"circuitSuperconductor", 1},
@@ -1344,8 +1344,8 @@ public class RecipeLoader_02 {
                     new Object[] {
                             GT_ModHandler.getModItem("gregtech", "gt.blockmachines", 8, 965),
                             GT_OreDictUnificator.get(OrePrefixes.wireGt08, Materials.SuperconductorLuV, 32),
-                            ItemList.Circuit_Wafer_NPIC.get(64),
-                            ItemList.UV_Coil.get(16),
+                            ItemList.Circuit_Wafer_PPIC.get(64),
+                            ItemList.UHV_Coil.get(16),
                             ItemRefer.Compact_Fusion_Coil_T2.get(8),
                             ItemRefer.HiC_T4.get(8)
                     },
