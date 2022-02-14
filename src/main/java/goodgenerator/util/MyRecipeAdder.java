@@ -80,7 +80,7 @@ public class MyRecipeAdder {
             1,
             StatCollector.translateToLocal("value.precise_assembler.1"),
             true,
-            true
+            false
     );
 
     public static class liquidMentalFuelMapper extends GT_Recipe.GT_Recipe_Map_Fuel{
