@@ -234,6 +234,7 @@ scanner.info.YOTTank.1=Fluid Name:
 scanner.info.YOTTank.2=Current Used:
 scanner.info.XHE.0=Steam Output is equal to
 scanner.info.XHE.1=Overheated Threshold:
+scanner.info.UX.0=Running Parallel
 
 #GUI Info
 gui.NeutronSensor.0=Input the value of Neutron Kinetic Energy.
@@ -359,12 +360,21 @@ LargeFusion3.hint.8=Support TecTech Hatches.
 LargeFusion4.hint.0=At least 1666x Fusion Machine Casing MK III
 LargeFusion4.hint.1=At least 63x Uranium Reinforced Borosilicate Glass Blocks
 LargeFusion4.hint.2=558x Compact Fusion Coil MK-II Prototype
-LargeFusion4.hint.3=128x Infinity Frame Boxes
+LargeFusion4.hint.3=128x Infinity Catalyst Frame Boxes
 LargeFusion4.hint.4=1 - Input Hatch
 LargeFusion4.hint.5=2 - Output Hatch
 LargeFusion4.hint.6=3 - Energy Hatch
 LargeFusion4.hint.7=All Hatches must be UHV or better.
 LargeFusion4.hint.8=Support TecTech Hatches.
+LargeFusion5.hint.0=At least 1666x Fusion Machine Casing MK IV
+LargeFusion5.hint.1=At least 63x Europium Reinforced Borosilicate Glass Blocks
+LargeFusion5.hint.2=558x Compact Fusion Coil MK-II Finaltype
+LargeFusion5.hint.3=128x Infinity Frame Boxes
+LargeFusion5.hint.4=1 - Input Hatch
+LargeFusion5.hint.5=2 - Output Hatch
+LargeFusion5.hint.6=3 - Energy Hatch
+LargeFusion5.hint.7=All Hatches must be UEV or better.
+LargeFusion5.hint.8=Support TecTech Hatches.
 
 #Chat
 largeessentiagenerator.chat= Installed!
@@ -410,6 +420,14 @@ achievement.yottaFluidTankCell.4=Fluid Cell Block T5
 achievement.yottaFluidTankCell.4.desc=Pickup this item to see the recipe in NEI
 achievement.yottaFluidTankCell.5=Fluid Cell Block T6
 achievement.yottaFluidTankCell.5.desc=Pickup this item to see the recipe in NEI
+achievement.gt.blockmachines.largefusioncomputer2=Not Enough Fusions
+achievement.gt.blockmachines.largefusioncomputer2.desc=Pickup this item to see the recipe in NEI
+achievement.gt.blockmachines.largefusioncomputer3=PROJECT MOISS
+achievement.gt.blockmachines.largefusioncomputer3.desc=Pickup this item to see the recipe in NEI
+achievement.gt.blockmachines.largefusioncomputer4=イワシがつちからはえてくるんだ
+achievement.gt.blockmachines.largefusioncomputer4.desc=Pickup this item to see the recipe in NEI
+achievement.gt.blockmachines.largefusioncomputer5=XXXX
+achievement.gt.blockmachines.largefusioncomputer5.desc=Pickup this item to see the recipe in NEI
 
 #Thaumcraft Research Context
 research.ESSENTIA_GENERATOR.page.0=You have found that Essentia contains much more power than you thought. Is there a way to generate electricity from these Essentia?<BR><BR>The LEG(Large Essentia Generator) will automatically adapt its output voltage according to its dynamo hatch. The the Diffusion Cell determines the highest hatch tier that LEG can accept.

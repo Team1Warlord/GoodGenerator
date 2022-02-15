@@ -40,7 +40,7 @@ public class LargeFusionComputer3 extends LargeFusionComputer {
         tt.addMachineType("Fusion Reactor")
                 .addInfo("Millions of nuclear.")
                 .addInfo("Controller block for the Compact Fusion Reactor MK-III.")
-                .addInfo("2097152EU/t and 20M EU capacity per Energy Hatch")
+                .addInfo("2,097,152EU/t and 20M EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
                 .addInfo("number of energy hatches * cap, you can't do it")
                 .addInfo("Make sure the whole structure is built in the 3x3")

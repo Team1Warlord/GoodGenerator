@@ -142,6 +142,7 @@ public final class ItemRefer {
     public static ItemRefer Compact_Fusion_MK2 = getItemStack(LFC[1]);
     public static ItemRefer Compact_Fusion_MK3 = getItemStack(LFC[2]);
     public static ItemRefer Compact_Fusion_MK4 = getItemStack(LFC[3]);
+    public static ItemRefer Compact_Fusion_MK5 = getItemStack(LFC[4]);
 
     private Item mItem = null;
     private Block mBlock = null;

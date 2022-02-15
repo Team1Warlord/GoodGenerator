@@ -23,18 +23,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import org.lwjgl.input.Keyboard;
 
-import java.lang.reflect.Field;
-
 import static goodgenerator.util.DescTextLocalization.BLUE_PRINT_INFO;
 import static gregtech.api.enums.Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS;
 
-public class LargeFusionComputer4 extends LargeFusionComputerPP {
+public class LargeFusionComputer5 extends LargeFusionComputerPP {
 
-    public LargeFusionComputer4(int id, String name, String nameRegional) {
+    public LargeFusionComputer5(int id, String name, String nameRegional) {
         super(id,name,nameRegional);
     }
 
-    public LargeFusionComputer4(String name) {
+    public LargeFusionComputer5(String name) {
         super(name);
     }
 
@@ -43,30 +41,31 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Fusion Reactor")
                 .addInfo("Galaxy Collapse.")
-                .addInfo("Controller block for the Compact Fusion Reactor MK-IV Prototype.")
-                .addInfo("16,777,216EU/t and 80M EU capacity per Energy Hatch")
+                .addInfo("Controller block for the Compact Fusion Reactor MK-V.")
+                .addInfo("268,435,456EU/t and 320M EU capacity per Energy Hatch")
                 .addInfo("If the recipe has a startup cost greater than the")
                 .addInfo("number of energy hatches * cap, you can't do it")
                 .addInfo("Make sure the whole structure is built in the 3x3")
                 .addInfo("chuck area of the ring center (not controller).")
+                .addInfo("It can run 512x recipes at most.")
                 .addInfo("Performs 4/4 overclock.")
-                .addInfo("Startup < 160,000,000 EU: 4096x Parallel")
-                .addInfo("Startup < 320,000,000 EU: 2048x Parallel")
-                .addInfo("Startup < 640,000,000 EU: 1024x Parallel")
-                .addInfo("Startup < 1,200,000,000 EU: 512x Parallel")
-                .addInfo("Startup < 2,000,000,000 EU: 256x Parallel")
+                .addInfo("Startup < 160,000,000 EU: 8192x Parallel")
+                .addInfo("Startup < 320,000,000 EU: 4096x Parallel")
+                .addInfo("Startup < 640,000,000 EU: 2048x Parallel")
+                .addInfo("Startup < 1,200,000,000 EU: 1024x Parallel")
+                .addInfo("Startup < 2,000,000,000 EU: 512x Parallel")
                 .addInfo("Support" + EnumChatFormatting.BLUE + " Tec" + EnumChatFormatting.DARK_BLUE + "Tech" + EnumChatFormatting.GRAY + " Energy/Laser Hatches!")
                 .addInfo("The structure is too complex!")
                 .addInfo(BLUE_PRINT_INFO)
                 .addSeparator()
-                .addCasingInfo("Fusion Machine Casing MK III", 1666)
-                .addCasingInfo("Compact Fusion Coil MK-II Prototype", 558)
-                .addCasingInfo("Infinity Catalyst Frame Box", 128)
-                .addCasingInfo("Uranium Reinforced Borosilicate Glass Block", 63)
+                .addCasingInfo("Fusion Machine Casing MK IV", 1666)
+                .addCasingInfo("Compact Fusion Coil MK-II Finaltype", 558)
+                .addCasingInfo("Infinity Frame Box", 128)
+                .addCasingInfo("Europium Reinforced Borosilicate Glass Block", 63)
                 .addEnergyHatch("1-32, Hint block with dot 3", 3)
                 .addInputHatch("2-16, Hint block with dot 1", 1)
                 .addOutputHatch("1-16, Hint block with dot 2", 2)
-                .addStructureInfo("ALL Hatches must be UHV or better")
+                .addStructureInfo("ALL Hatches must be UEV or better")
                 .toolTipFinisher("Good Generator");
         if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
             return tt.getInformation();
@@ -77,27 +76,17 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public long maxEUStore() {
-        return 2560060000L * (Math.min(32, this.mEnergyHatches.size() + this.eEnergyMulti.size())) / 32L;
+        return 10240800000L * (Math.min(32, this.mEnergyHatches.size() + this.eEnergyMulti.size())) / 32L;
     }
 
     @Override
     public Block getCasingBlock() {
-        try {
-            Field f = ModBlocks.class.getDeclaredField("blockCasings6Misc");
-            return (Block) f.get(null);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            return ModBlocks.blockCasings3Misc;
-        }
+        return ModBlocks.blockCasings3Misc;
     }
 
     @Override
     public int getCasingMeta() {
-        try {
-            Field f = ModBlocks.class.getDeclaredField("blockCasings6Misc");
-            return 0;
-        } catch (NoSuchFieldException e) {
-            return 12;
-        }
+        return 12;
     }
 
     @Override
@@ -107,7 +96,7 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public int getCoilMeta() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -117,17 +106,17 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public int getGlassMeta() {
-        return 13;
+        return 14;
     }
 
     @Override
     public int hatchTier() {
-        return 9;
+        return 10;
     }
 
     @Override
     public Materials getFrameBox() {
-        return Materials.InfinityCatalyst;
+        return Materials.Infinity;
     }
 
     @Override
@@ -140,30 +129,32 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public int tierOverclock() {
-        return 16;
+        return 256;
     }
 
     @Override
     public int overclock(int mStartEnergy) {
-        return (mStartEnergy < 160000000) ? 64 : ((mStartEnergy < 320000000) ? 16 : (mStartEnergy < 640000000) ? 4 : 1);
+        return (mStartEnergy < 160000000) ? 256 : ((mStartEnergy < 320000000) ? 64 : ((mStartEnergy < 640000000) ? 16 : ((mStartEnergy < 1200000000) ? 4 : 1)));
     }
 
     @Override
     public int extraPara(int startEnergy) {
         if (startEnergy < 160000000)
-            return 16;
+            return 32;
         if (startEnergy < 320000000)
-            return 8;
+            return 16;
         if (startEnergy < 640000000)
-            return 4;
+            return 8;
         if (startEnergy < 1200000000)
+            return 4;
+        if (startEnergy < 2000000000)
             return 2;
         return 1;
     }
 
     @Override
     public String[] getStructureDescription(ItemStack stackSize) {
-        return DescTextLocalization.addText("LargeFusion4.hint", 9);
+        return DescTextLocalization.addText("LargeFusion5.hint", 9);
     }
 
     @Override
@@ -200,6 +191,6 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public IMetaTileEntity newMetaEntity(IGregTechTileEntity aTileEntity) {
-        return new LargeFusionComputer4(mName);
+        return new LargeFusionComputer5(mName);
     }
 }

@@ -1252,6 +1252,22 @@ public class MyMaterial implements Runnable {
             new Pair<>(Sunnarium, 4)
     );
 
+    public static final Werkstoff tairitsu = new Werkstoff(
+            new short[]{0x36,0x36,0x36},
+            "Tairitsu",
+            new Werkstoff.Stats().setBlastFurnace(true).setMeltingPoint(7400).setCentrifuge(true),
+            Werkstoff.Types.MIXTURE,
+            new Werkstoff.GenerationFeatures().onlyDust().addMolten().addMetalItems().addCraftingMetalWorkingItems().addMixerRecipes((short) 6),
+            OffsetID + 105,
+            TextureSet.SET_SHINY,
+            new Pair<>(Tungsten, 8),
+            new Pair<>(Naquadria, 7),
+            new Pair<>(Bedrockium, 4),
+            new Pair<>(Carbon, 4),
+            new Pair<>(Vanadium, 3),
+            new Pair<>(BlackPlutonium, 1)
+    );
+
     @Override
     public void run() { }
 }

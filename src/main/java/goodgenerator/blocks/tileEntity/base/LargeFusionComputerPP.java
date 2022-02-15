@@ -39,18 +39,18 @@ import static gregtech.api.enums.Textures.BlockIcons.MACHINE_CASING_FUSION_GLASS
 import static gregtech.api.util.GT_StructureUtility.ofFrame;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
-public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBase_EM implements IConstructable {
+public abstract class LargeFusionComputerPP extends GT_MetaTileEntity_MultiblockBase_EM implements IConstructable {
 
-    public static final String MAIN_NAME = "largeFusion";
+    public static final String MAIN_NAME = "largeFusionPP";
     private boolean isLoadedChunk;
     public GT_Recipe mLastRecipe;
     public int para;
     public int mEUStore;
     public final static int MAX_PARA = 256;
-    private static final ClassValue<IStructureDefinition<LargeFusionComputer>> STRUCTURE_DEFINITION = new ClassValue<IStructureDefinition<LargeFusionComputer>>() {
+    private static final ClassValue<IStructureDefinition<LargeFusionComputerPP>> STRUCTURE_DEFINITION = new ClassValue<IStructureDefinition<LargeFusionComputerPP>>() {
         @Override
-        protected IStructureDefinition<LargeFusionComputer> computeValue(Class<?> type) {
-            return StructureDefinition.<LargeFusionComputer>builder()
+        protected IStructureDefinition<LargeFusionComputerPP> computeValue(Class<?> type) {
+            return StructureDefinition.<LargeFusionComputerPP>builder()
                     .addShape(MAIN_NAME, transpose(new String[][]{
                             L0, L1, L2, L3, L2, L1, L0
                     }))
@@ -64,13 +64,13 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                             'B', lazy(x -> ofBlock(x.getGlassBlock(), x.getGlassMeta()))
                     )
                     .addElement(
-                            'I', lazy(x -> ofHatchAdderOptional(LargeFusionComputer::addInjector, x.textureIndex(), 1, x.getGlassBlock(), x.getGlassMeta()))
+                            'I', lazy(x -> ofHatchAdderOptional(LargeFusionComputerPP::addInjector, x.textureIndex(), 1, x.getGlassBlock(), x.getGlassMeta()))
                     )
                     .addElement(
-                            'O', lazy(x -> ofHatchAdderOptional(LargeFusionComputer::addExtractor, x.textureIndex(), 2, x.getGlassBlock(), x.getGlassMeta()))
+                            'O', lazy(x -> ofHatchAdderOptional(LargeFusionComputerPP::addExtractor, x.textureIndex(), 2, x.getGlassBlock(), x.getGlassMeta()))
                     )
                     .addElement(
-                            'E', lazy(x -> ofHatchAdderOptional(LargeFusionComputer::addEnergyInjector, x.textureIndex(), 3, x.getCasingBlock(), x.getCasingMeta()))
+                            'E', lazy(x -> ofHatchAdderOptional(LargeFusionComputerPP::addEnergyInjector, x.textureIndex(), 3, x.getCasingBlock(), x.getCasingMeta()))
                     )
                     .addElement(
                             'F', lazy(x -> ofFrame(x.getFrameBox()))
@@ -87,11 +87,11 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                 ));
     }
 
-    public LargeFusionComputer(String name) {
+    public LargeFusionComputerPP(String name) {
         super(name);
     }
 
-    public LargeFusionComputer(int id, String name, String nameRegional) {
+    public LargeFusionComputerPP(int id, String name, String nameRegional) {
         super(id,name,nameRegional);
     }
 
@@ -324,21 +324,9 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     public abstract int tierOverclock();
 
-    public int overclock(int mStartEnergy) {
-        if (tierOverclock() == 1) {
-            return 1;
-        }
-        if (tierOverclock() == 2) {
-            return mStartEnergy < 160000000 ? 2 : 1;
-        }
-        if (tierOverclock() == 4) {
-            return (mStartEnergy < 160000000 ? 4 : (mStartEnergy < 320000000 ? 2 : 1));
-        }
-        if (tierOverclock() == 8) {
-            return (mStartEnergy < 160000000) ? 8 : ((mStartEnergy < 320000000) ? 4 : (mStartEnergy < 640000000) ? 2 : 1);
-        }
-        return (mStartEnergy < 160000000) ? 16 : ((mStartEnergy < 320000000) ? 8 : ((mStartEnergy < 640000000) ? 4 : (mStartEnergy < 1280000000) ? 2 : 1));
-    }
+    public abstract int overclock(int mStartEnergy);
+
+    public abstract int extraPara(int startEnergy);
 
     @Override
     public boolean checkRecipe_EM(ItemStack aStack) {
@@ -352,7 +340,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
                 this.mLastRecipe = null;
                 return false;
             }
-            int pall = handleParallelRecipe(tRecipe, tFluids, null, Math.min(MAX_PARA, (int) (getMaxEUInput() / tRecipe.mEUt / overclock(tRecipe.mSpecialValue))));
+            int pall = handleParallelRecipe(tRecipe, tFluids, null, Math.min(MAX_PARA * extraPara(tRecipe.mSpecialValue), (int) (getMaxEUInput() / tRecipe.mEUt / overclock(tRecipe.mSpecialValue))));
             this.para = pall;
             if (mRunningOnLoad || pall > 0) {
                 this.mLastRecipe = tRecipe;
@@ -439,7 +427,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
     }
 
     @Override
-    public IStructureDefinition<LargeFusionComputer> getStructure_EM() {
+    public IStructureDefinition<LargeFusionComputerPP> getStructure_EM() {
         return STRUCTURE_DEFINITION.get(getClass());
     }
 
@@ -465,7 +453,7 @@ public abstract class LargeFusionComputer extends GT_MetaTileEntity_MultiblockBa
 
     @Override
     public String[] getInfoData() {
-        String tier = hatchTier() == 6 ? EnumChatFormatting.RED+"I"+EnumChatFormatting.RESET : hatchTier() == 7 ? EnumChatFormatting.YELLOW+"II"+EnumChatFormatting.RESET : hatchTier() == 8 ? EnumChatFormatting.GRAY+"III" + EnumChatFormatting.RESET : "IV";
+        String tier = hatchTier() == 9 ? EnumChatFormatting.BLUE+"IV"+EnumChatFormatting.RESET : EnumChatFormatting.GOLD+"V"+EnumChatFormatting.RESET;
         float plasmaOut = 0;
         int powerRequired = 0;
         if (this.mLastRecipe != null) {
