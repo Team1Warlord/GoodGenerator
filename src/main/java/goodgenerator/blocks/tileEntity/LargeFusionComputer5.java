@@ -47,7 +47,6 @@ public class LargeFusionComputer5 extends LargeFusionComputerPP {
                 .addInfo("number of energy hatches * cap, you can't do it")
                 .addInfo("Make sure the whole structure is built in the 3x3")
                 .addInfo("chuck area of the ring center (not controller).")
-                .addInfo("It can run 512x recipes at most.")
                 .addInfo("Performs 4/4 overclock.")
                 .addInfo("Startup < 160,000,000 EU: 8192x Parallel")
                 .addInfo("Startup < 320,000,000 EU: 4096x Parallel")
