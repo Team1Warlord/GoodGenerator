@@ -38,6 +38,10 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
         super(name);
     }
 
+    //Some hacky shit
+    public static Block mMK4Casing = null;
+    public static int mMK4CasingMeta;
+
     @Override
     public String[] getDescription() {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
@@ -82,21 +86,26 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
 
     @Override
     public Block getCasingBlock() {
-        try {
-            Field f = ModBlocks.class.getDeclaredField("blockCasings6Misc");
-            return (Block) f.get(null);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            return ModBlocks.blockCasings3Misc;
-        }
+        if (mMK4Casing == null)
+            doCasingInit();
+        return mMK4Casing;
     }
 
     @Override
     public int getCasingMeta() {
+        if (mMK4Casing == null)
+            doCasingInit();
+        return mMK4CasingMeta;
+    }
+
+    private void doCasingInit() {
         try {
             Field f = ModBlocks.class.getDeclaredField("blockCasings6Misc");
-            return 0;
-        } catch (NoSuchFieldException e) {
-            return 12;
+            mMK4Casing = (Block) f.get(null);
+            mMK4CasingMeta = 0;
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            mMK4Casing = ModBlocks.blockCasings3Misc;
+            mMK4CasingMeta = 12;
         }
     }
 
