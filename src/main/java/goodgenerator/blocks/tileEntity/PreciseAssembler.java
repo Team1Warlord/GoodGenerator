@@ -441,34 +441,4 @@ public class PreciseAssembler extends GT_MetaTileEntity_MultiblockBase_EM implem
         }
         else return new ITexture[] {Textures.BlockIcons.getCasingTextureForId(1538 + t)};
     }
-
-    @SideOnly(Side.CLIENT)
-    public int getCasingTierClient() {
-        if (this.getBaseMetaTileEntity().getWorld() == null) {
-            return 0;
-        }
-        try {
-            for (byte i = 0; i < 6; i++) {
-                Block casing = getBaseMetaTileEntity().getBlockAtSide(i);
-                if (casing != null && casing.equals(Loaders.preciseUnitCasing)) {
-                    return getBaseMetaTileEntity().getMetaIDAtSide(i) + 1;
-                }
-            }
-        }
-        catch (Throwable t) {
-            return 0;
-        }
-        return 0;
-    }
-
-    @Override
-    public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        if (aBaseMetaTileEntity.isClientSide() && aTick % 100 == 0) {
-            if (this.getBaseMetaTileEntity() != null && this.getBaseMetaTileEntity().getWorld() != null) {
-                this.casingTier = getCasingTierClient();
-                markDirty();
-            }
-        }
-        super.onPostTick(aBaseMetaTileEntity, aTick);
-    }
 }
