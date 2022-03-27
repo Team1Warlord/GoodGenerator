@@ -1,9 +1,9 @@
 package goodgenerator.blocks.tileEntity;
 
-import com.github.technus.tectech.thing.metaTileEntity.multi.base.GT_MetaTileEntity_MultiblockBase_EM;
 import com.gtnewhorizon.structurelib.alignment.constructable.IConstructable;
 import com.gtnewhorizon.structurelib.structure.IStructureDefinition;
 import com.gtnewhorizon.structurelib.structure.StructureDefinition;
+import goodgenerator.blocks.tileEntity.base.GT_MetaTileEntity_TooltipMultiBlockBase_EM;
 import goodgenerator.loader.Loaders;
 import goodgenerator.util.DescTextLocalization;
 import goodgenerator.util.MyRecipeAdder;
@@ -27,7 +27,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
-import org.lwjgl.input.Keyboard;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.*;
 import static goodgenerator.util.DescTextLocalization.BLUE_PRINT_INFO;
@@ -35,7 +34,7 @@ import static gregtech.api.enums.GT_Values.V;
 import static gregtech.api.enums.Textures.BlockIcons.*;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdder;
 
-public class ExtremeHeatExchanger extends GT_MetaTileEntity_MultiblockBase_EM implements IConstructable {
+public class ExtremeHeatExchanger extends GT_MetaTileEntity_TooltipMultiBlockBase_EM implements IConstructable {
 
     protected IStructureDefinition<ExtremeHeatExchanger> multiDefinition = null;
 
@@ -209,8 +208,7 @@ public class ExtremeHeatExchanger extends GT_MetaTileEntity_MultiblockBase_EM im
         return structureCheck_EM(mName, 2, 5, 0) && mMaintenanceHatches.size() == 1 && casingAmount >= 25;
     }
 
-    @Override
-    public String[] getDescription() {
+    protected GT_Multiblock_Tooltip_Builder createTooltip() {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Heat Exchanger/Plasma Heat Exchanger")
                 .addInfo("Controller block for the Extreme Heat Exchanger.")
@@ -227,11 +225,7 @@ public class ExtremeHeatExchanger extends GT_MetaTileEntity_MultiblockBase_EM im
                 .addMaintenanceHatch("Any Casing")
                 .addCasingInfo("Robust Tungstensteel Machine Casings", 25)
                 .toolTipFinisher("Good Generator");
-        if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-            return tt.getInformation();
-        } else {
-            return tt.getStructureInformation();
-        }
+        return tt;
     }
 
     @Override

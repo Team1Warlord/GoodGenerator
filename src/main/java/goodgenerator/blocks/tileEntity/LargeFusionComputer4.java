@@ -42,8 +42,7 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
     public static Block mMK4Casing = null;
     public static int mMK4CasingMeta;
 
-    @Override
-    public String[] getDescription() {
+    protected GT_Multiblock_Tooltip_Builder createTooltip() {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Fusion Reactor")
                 .addInfo("Galaxy Collapse.")
@@ -71,11 +70,7 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
                 .addOutputHatch("1-16, Hint block with dot 2", 2)
                 .addStructureInfo("ALL Hatches must be UHV or better")
                 .toolTipFinisher("Good Generator");
-        if (!Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)) {
-            return tt.getInformation();
-        } else {
-            return tt.getStructureInformation();
-        }
+        return tt;
     }
 
     @Override
