@@ -216,7 +216,7 @@ public class PreciseAssembler extends GT_MetaTileEntity_MultiblockBase_EM implem
         }
         else {
             for (GT_MetaTileEntity_Hatch_InputBus bus : mInputBusses) {
-                if (!isValidMetaTileEntity(bus) && getStoredItemFromHatch(bus).length < 1) continue;
+                if (!isValidMetaTileEntity(bus) || getStoredItemFromHatch(bus).length < 1) continue;
                 GT_Recipe tRecipe = getRecipeMap().findRecipe(this.getBaseMetaTileEntity(), false, Math.min(getMachineVoltageLimit(), getMaxInputVoltage()), inputFluids, getStoredItemFromHatch(bus));
                 if (tRecipe != null) {
                     this.mEfficiency = (10000 - (this.getIdealStatus() - this.getRepairStatus()) * 1000);
