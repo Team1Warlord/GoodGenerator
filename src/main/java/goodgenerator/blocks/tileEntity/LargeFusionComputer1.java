@@ -33,6 +33,7 @@ public class LargeFusionComputer1 extends LargeFusionComputer {
         super(name);
     }
 
+    @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Fusion Reactor")

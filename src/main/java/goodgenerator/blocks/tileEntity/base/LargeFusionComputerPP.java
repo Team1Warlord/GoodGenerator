@@ -38,7 +38,7 @@ import static gregtech.api.enums.Textures.BlockIcons.*;
 import static gregtech.api.util.GT_StructureUtility.ofFrame;
 import static gregtech.api.util.GT_StructureUtility.ofHatchAdderOptional;
 
-public abstract class LargeFusionComputerPP extends GT_MetaTileEntity_TooltipMultiBlockBase_EM implements IConstructable, ISecondaryDescribable {
+public abstract class LargeFusionComputerPP extends GT_MetaTileEntity_TooltipMultiBlockBase_EM implements IConstructable {
 
     public static final String MAIN_NAME = "largeFusionPP";
     private boolean isLoadedChunk;

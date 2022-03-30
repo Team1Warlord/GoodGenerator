@@ -42,6 +42,7 @@ public class LargeFusionComputer4 extends LargeFusionComputerPP {
     public static Block mMK4Casing = null;
     public static int mMK4CasingMeta;
 
+    @Override
     protected GT_Multiblock_Tooltip_Builder createTooltip() {
         final GT_Multiblock_Tooltip_Builder tt = new GT_Multiblock_Tooltip_Builder();
         tt.addMachineType("Fusion Reactor")
