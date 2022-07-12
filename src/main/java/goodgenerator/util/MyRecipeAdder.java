@@ -51,7 +51,7 @@ public class MyRecipeAdder {
             StatCollector.translateToLocal("tile.neutron_activator"),
             null,
             "goodgenerator:textures/gui/neutron_activator",
-            6, 6, 0, 0, 0,
+            9, 9, 0, 0, 0,
             null, 0, null,
             false,
             false

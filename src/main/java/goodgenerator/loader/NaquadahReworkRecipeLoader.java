@@ -264,6 +264,7 @@ public class NaquadahReworkRecipeLoader {
                         WerkstoffLoader.Sodiumsulfate.get(OrePrefixes.dust, 64),
                         WerkstoffLoader.Sodiumsulfate.get(OrePrefixes.dust, 64),
                         WerkstoffLoader.Sodiumsulfate.get(OrePrefixes.dust, 12),
+                        lowQualityNaquadriaSulphate.get(OrePrefixes.dust, 2),
                 },
                 120,
                 480,
