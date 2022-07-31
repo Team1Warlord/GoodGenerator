@@ -35,6 +35,8 @@ import java.util.List;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -139,9 +141,9 @@ public class YottaFluidTank extends GT_MetaTileEntity_TooltipMultiBlockBase_EM i
     }
 
     private int calGlassTier(int meta) {
-        if (meta >= 1 && meta <= 6) return meta;
-        if (meta >= 7 && meta <= 12) return 1;
-        return 3;
+        if (meta >= 1 && meta <= 6) return meta; //returns correct meta for Tiers 1-6, 7-12 is colour variations of HV
+        if (meta >= 7 && meta <= 12) return 1; //For all the HV Glass colour variations
+        return meta; //returns the rest
     }
 
     @Override
@@ -156,6 +158,7 @@ public class YottaFluidTank extends GT_MetaTileEntity_TooltipMultiBlockBase_EM i
         }
         if (cnt > 15 || cnt < 1) return false;
         if (!structureCheck_EM(YOTTANK_TOP, 2, cnt + 2, 0)) return false;
+        //maxCell+1 = Tier of highest Cell. maxCell itself just return Tier-1
         if (mMaintenanceHatches.size() == 1 && maxCell + 1 <= calGlassTier(glassMeta)) {
             if (mStorage.compareTo(mStorageCurrent) < 0) mStorageCurrent = mStorage;
             if (FluidRegistry.getFluidStack(mFluidName, 1) == null) {
@@ -184,7 +187,7 @@ public class YottaFluidTank extends GT_MetaTileEntity_TooltipMultiBlockBase_EM i
                     .addElement(
                             'G',
                             addTieredBlock(
-                                    ItemRegistry.bw_realglas, YottaFluidTank::setMeta, YottaFluidTank::getMeta, 12))
+                                    ItemRegistry.bw_realglas, YottaFluidTank::setMeta, YottaFluidTank::getMeta, 14))
                     .addElement('R', ofChain(cells(10)))
                     .addElement('F', addFrame(Materials.Steel))
                     .addElement(
