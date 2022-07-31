@@ -562,7 +562,7 @@ public class RecipeLoader_02 {
                     ItemRefer.Fluid_Storage_Core_T5.get(5),
                     new Object[] {"circuitBio", 4},
                     new Object[] {"circuitBio", 4},
-                    ItemList.Electric_Pump_UEV.get(2),
+                    ItemList.Electric_Pump_UIV.get(2),
                     GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.DraconiumAwakened, 4),
                     GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.DraconiumAwakened, 4),
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Neutronium, 16),
@@ -587,7 +587,7 @@ public class RecipeLoader_02 {
                     ItemRefer.Fluid_Storage_Core_T6.get(2),
                     new Object[]{OrePrefixes.circuit.get(Materials.Infinite), 4L},
                     new Object[]{OrePrefixes.circuit.get(Materials.Infinite), 4L},
-                    ItemList.Electric_Pump_UEV.get(8),
+                    ItemList.Electric_Pump_UMV.get(8),
                     GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.NetherStar, 4),
                     GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.NetherStar, 4),
                     GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Infinity, 16),
@@ -597,7 +597,7 @@ public class RecipeLoader_02 {
                 },
                 new FluidStack[] {
                     Materials.DraconiumAwakened.getMolten(1440),
-                    FluidRegistry.getFluidStack("ic2coolant", 32000),
+                    FluidRegistry.getFluidStack("ic2coolant", 46080),
                     Materials.Lubricant.getFluid(32000)
                 },
                 ItemRefer.YOTTank_Cell_T6.get(1),
@@ -611,7 +611,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Fluid_Storage_Core_T7.get(2),
                 new Object[]{OrePrefixes.circuit.get(Materials.Bio), 4L},
                 new Object[]{OrePrefixes.circuit.get(Materials.Bio), 4L},
-                ItemList.Electric_Pump_UEV.get(12),
+                ItemList.Electric_Pump_UMV.get(10),
                 GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.NetherStar, 8),
                 GT_OreDictUnificator.get(OrePrefixes.pipeMedium, Materials.NetherStar, 8),
                 GT_OreDictUnificator.get(OrePrefixes.plate, Materials.CosmicNeutronium, 16),
@@ -621,7 +621,7 @@ public class RecipeLoader_02 {
             },
             new FluidStack[] {
                 Materials.DraconiumAwakened.getMolten(14400),
-                FluidRegistry.getFluidStack("ic2coolant", 46080),
+                FluidRegistry.getFluidStack("supercoolant", 46080),
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T7.get(1),
@@ -635,7 +635,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Fluid_Storage_Core_T8.get(2),
                 new Object[]{OrePrefixes.circuit.get(Materials.Nano), 4L},
                 new Object[]{OrePrefixes.circuit.get(Materials.Nano), 4L},
-                ItemList.Electric_Pump_UEV.get(14),
+                ItemList.Electric_Pump_UMV.get(12),
                 GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.NetherStar, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.CosmicNeutronium, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.DraconiumAwakened, 12),
@@ -644,7 +644,7 @@ public class RecipeLoader_02 {
             },
             new FluidStack[] {
                 Materials.DraconiumAwakened.getMolten(14400),
-                FluidRegistry.getFluidStack("ic2coolant", 46080),
+                FluidRegistry.getFluidStack("supercoolant", 46080),
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T8.get(1),
@@ -658,7 +658,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Fluid_Storage_Core_T9.get(2),
                 new Object[]{OrePrefixes.circuit.get(Materials.Piko), 4L},
                 new Object[]{OrePrefixes.circuit.get(Materials.Piko), 4L},
-                ItemList.Electric_Pump_UEV.get(14),
+                ItemList.Electric_Pump_UMV.get(14),
                 GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.NetherStar, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.CosmicNeutronium, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.DraconiumAwakened, 12),
@@ -667,7 +667,7 @@ public class RecipeLoader_02 {
             },
             new FluidStack[] {
                 Materials.DraconiumAwakened.getMolten(14400),
-                FluidRegistry.getFluidStack("ic2coolant", 46080),
+                FluidRegistry.getFluidStack("supercoolant", 46080),
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T9.get(1),
@@ -681,7 +681,7 @@ public class RecipeLoader_02 {
                 ItemRefer.Fluid_Storage_Core_T10.get(2),
                 new Object[]{OrePrefixes.circuit.get(Materials.Quantum), 6L},
                 new Object[]{OrePrefixes.circuit.get(Materials.Quantum), 6L},
-                ItemList.Electric_Pump_UEV.get(16),
+                ItemList.Electric_Pump_UMV.get(16),
                 GT_OreDictUnificator.get(OrePrefixes.pipeLarge, Materials.NetherStar, 64),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.CosmicNeutronium, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.DraconiumAwakened, 12),
@@ -691,7 +691,7 @@ public class RecipeLoader_02 {
             new FluidStack[] {
                 Materials.DraconiumAwakened.getMolten(14400),
                 Materials.Transcendent.getMolten(1440),
-                FluidRegistry.getFluidStack("ic2coolant", 46080),
+                FluidRegistry.getFluidStack("supercoolant", 46080),
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T10.get(1),
