@@ -312,7 +312,7 @@ public class RecipeLoader_02 {
                 20000,
                 new Object[] {
                     GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.StainlessSteel, 4),
-                    ItemList.Electric_Pump_HV.get(4),
+                    ItemList.Electric_Pump_HV.get(8),
                     ItemList.Quantum_Tank_LV.get(1),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Osmium, 8),
                     GT_ModHandler.getModItem("GalacticraftMars", "item.null", 1L, 6),
@@ -322,14 +322,14 @@ public class RecipeLoader_02 {
                 new FluidStack[] {new FluidStack(solderIndalloy, 2304), Materials.Lubricant.getFluid(4000)},
                 ItemRefer.Fluid_Storage_Core_T3.get(1),
                 400,
-                122880);
+                32000);
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.Fluid_Storage_Core_T3.get(1),
                 40000,
                 new Object[] {
                     GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.Titanium, 4),
-                    ItemList.Electric_Pump_EV.get(4),
+                    ItemList.Electric_Pump_EV.get(8),
                     ItemList.Quantum_Tank_LV.get(4),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Europium, 12),
                     GT_ModHandler.getModItem("GalacticraftMars", "item.null", 4L, 6),
@@ -339,15 +339,15 @@ public class RecipeLoader_02 {
                 },
                 new FluidStack[] {new FluidStack(solderIndalloy, 18432), Materials.Lubricant.getFluid(16000)},
                 ItemRefer.Fluid_Storage_Core_T4.get(1),
-                1600,
-                1966080);
+                400,
+                128000);
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.Fluid_Storage_Core_T4.get(1),
                 80000,
                 new Object[] {
                     GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.MysteriousCrystal, 4),
-                    ItemList.Electric_Pump_IV.get(4),
+                    ItemList.Electric_Pump_IV.get(8),
                     ItemList.Quantum_Tank_HV.get(8),
                     GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Neutronium, 12),
                     GT_ModHandler.getModItem("GalacticraftMars", "item.null", 16L, 6),
@@ -362,14 +362,14 @@ public class RecipeLoader_02 {
                     Materials.Lubricant.getFluid(64000)
                 },
                 ItemRefer.Fluid_Storage_Core_T5.get(1),
-                3200,
-                3921160);
+                400,
+                520000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.Fluid_Storage_Core_T5.get(1),
             160000,
             new Object[] {
                 GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.Infinity, 4),
-                ItemList.Electric_Pump_LuV.get(4),
+                ItemList.Electric_Pump_LuV.get(8),
                 ItemList.Quantum_Tank_EV.get(16),
                 GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 12),
                 GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Infinity, 12),
@@ -383,8 +383,8 @@ public class RecipeLoader_02 {
                 Materials.Lubricant.getFluid(64000)
             },
             ItemRefer.Fluid_Storage_Core_T6.get(1),
-            6400,
-            6321440);
+            400,
+            2090000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.Fluid_Storage_Core_T6.get(1),
             320000,
@@ -403,8 +403,8 @@ public class RecipeLoader_02 {
                 Materials.InfinityCatalyst.getMolten(1140)
             },
             ItemRefer.Fluid_Storage_Core_T7.get(1),
-            12800,
-            9521440);
+            400,
+            8300000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.Fluid_Storage_Core_T7.get(1),
             640000,
@@ -424,14 +424,14 @@ public class RecipeLoader_02 {
                 Materials.InfinityCatalyst.getMolten(5670)
             },
             ItemRefer.Fluid_Storage_Core_T8.get(1),
-            25600,
-            12725455);
+            400,
+            33554000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.Fluid_Storage_Core_T8.get(1),
             12800000,
             new Object[] {
                 GT_ModHandler.getModItem("GalacticraftMars", "item.null", 64L, 6),
-                ItemList.Electric_Pump_UHV.get(16),
+                ItemList.Electric_Pump_UHV.get(8),
                 GT_ModHandler.getModItem("Avaritia", "Neutronium_Compressor", 2L, 0),
                 ItemList.Quantum_Tank_IV.get(8),
                 GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.Infinity, 32),
@@ -448,14 +448,14 @@ public class RecipeLoader_02 {
             },
 
             ItemRefer.Fluid_Storage_Core_T9.get(1),
-            51200,
-            16724464);
+            400,
+            134217000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.Fluid_Storage_Core_T9.get(1),
             25600000,
             new Object[] {
                 GT_ModHandler.getModItem("GalacticraftMars", "item.null", 64L, 6),
-                ItemList.Electric_Pump_UEV.get(16),
+                ItemList.Electric_Pump_UEV.get(8),
                 GT_ModHandler.getModItem("Avaritia", "Neutronium_Compressor", 4L, 0),
                 ItemList.Quantum_Tank_IV.get(16),
                 GT_OreDictUnificator.get(OrePrefixes.pipeNonuple, Materials.Infinity, 32),
@@ -474,8 +474,8 @@ public class RecipeLoader_02 {
             },
 
             ItemRefer.Fluid_Storage_Core_T10.get(1),
-            1024000,
-            20726597);
+            400,
+            536800000);
 
         GT_Values.RA.addAssemblerRecipe(
                 new ItemStack[] {
@@ -502,7 +502,7 @@ public class RecipeLoader_02 {
                 },
                 Materials.Polytetrafluoroethylene.getMolten(144),
                 ItemRefer.YOTTank_Cell_T2.get(1),
-                1600,
+                1000,
                 7680);
 
         GT_Values.RA.addAssemblylineRecipe(
@@ -526,8 +526,8 @@ public class RecipeLoader_02 {
                     Materials.Lubricant.getFluid(8000)
                 },
                 ItemRefer.YOTTank_Cell_T3.get(1),
-                1600,
-                122880);
+                1000,
+            32000);
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.YOTTank_Cell_T3.get(1),
@@ -550,8 +550,8 @@ public class RecipeLoader_02 {
                     Materials.Lubricant.getFluid(16000)
                 },
                 ItemRefer.YOTTank_Cell_T4.get(1),
-                3200,
-                1966080);
+                1000,
+                128000);
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.YOTTank_Cell_T4.get(1),
@@ -576,8 +576,8 @@ public class RecipeLoader_02 {
                     Materials.Lubricant.getFluid(16000)
                 },
                 ItemRefer.YOTTank_Cell_T5.get(1),
-                6400,
-                3921160);
+                1000,
+                520000);
 
         GT_Values.RA.addAssemblylineRecipe(
                 ItemRefer.YOTTank_Cell_T5.get(1),
@@ -601,8 +601,8 @@ public class RecipeLoader_02 {
                     Materials.Lubricant.getFluid(32000)
                 },
                 ItemRefer.YOTTank_Cell_T6.get(1),
-                12800,
-                7842320);
+                1000,
+                2090000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.YOTTank_Cell_T6.get(1),
             160000,
@@ -625,8 +625,8 @@ public class RecipeLoader_02 {
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T7.get(1),
-            25600,
-            10442450);
+            1000,
+            8300000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.YOTTank_Cell_T7.get(1),
             160000,
@@ -648,8 +648,8 @@ public class RecipeLoader_02 {
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T8.get(1),
-            51200,
-            13482447);
+            1000,
+            33554000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.YOTTank_Cell_T8.get(1),
             200000,
@@ -671,8 +671,8 @@ public class RecipeLoader_02 {
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T9.get(1),
-            70000,
-            16742537);
+            1000,
+            134217000);
         GT_Values.RA.addAssemblylineRecipe(
             ItemRefer.YOTTank_Cell_T9.get(1),
             240000,
@@ -695,9 +695,50 @@ public class RecipeLoader_02 {
                 Materials.Lubricant.getFluid(46080)
             },
             ItemRefer.YOTTank_Cell_T10.get(1),
-            70000,
-            16742537);
+            1000,
+            536800000);
 
+        //Craft 2x64X Tier to 1X+1 Tier
+        GT_Values.RA.addAssemblerRecipe(
+            new ItemStack[] {
+                ItemRefer.Fluid_Storage_Core_T6.get(64),
+                ItemRefer.Fluid_Storage_Core_T6.get(64),
+                GT_Utility.getIntegratedCircuit(2)
+            },
+            GT_Values.NF,
+            ItemRefer.Fluid_Storage_Core_T7.get(1),
+            200,
+            7680);
+        GT_Values.RA.addAssemblerRecipe(
+            new ItemStack[] {
+                ItemRefer.Fluid_Storage_Core_T7.get(64),
+                ItemRefer.Fluid_Storage_Core_T7.get(64),
+                GT_Utility.getIntegratedCircuit(2)
+            },
+            GT_Values.NF,
+            ItemRefer.Fluid_Storage_Core_T8.get(1),
+            200,
+            7680);
+        GT_Values.RA.addAssemblerRecipe(
+            new ItemStack[] {
+                ItemRefer.Fluid_Storage_Core_T8.get(64),
+                ItemRefer.Fluid_Storage_Core_T8.get(64),
+                GT_Utility.getIntegratedCircuit(2)
+            },
+            GT_Values.NF,
+            ItemRefer.Fluid_Storage_Core_T9.get(1),
+            200,
+            7680);
+        GT_Values.RA.addAssemblerRecipe(
+            new ItemStack[] {
+                ItemRefer.Fluid_Storage_Core_T9.get(64),
+                ItemRefer.Fluid_Storage_Core_T9.get(64),
+                GT_Utility.getIntegratedCircuit(2)
+            },
+            GT_Values.NF,
+            ItemRefer.Fluid_Storage_Core_T10.get(1),
+            200,
+            7680);
 
         GT_Values.RA.addUnboxingRecipe(
                 ItemRefer.YOTTank_Cell_T1.get(1),
